@@ -104,3 +104,56 @@ header > button h1{
     border: 1px solid #FFF;
 }
 
+.infos{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: 'infos-data-container infos-description-container'
+    'infos-data-container infos-img';
+    background-color: #0E0E0E;
+    align-items: end;
+}
+
+.infos-data-container{
+    display: flex;
+    flex-direction: column;
+    padding: 8.3125rem 4.3125rem 8.3125rem 5.4375rem;
+    gap: 4.375rem;
+    border-right: 1px solid #5A5757;
+    border-bottom: 1px solid #5A5757;
+    background-color: #0E0E0E;
+    grid-area: infos-data-container;
+}
+
+.infos-data-container > .infos-data h1{
+    font-size: 3.125rem;
+    font-weight: 600;
+}
+
+.infos-data-container > .infos-data p{
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #5A5757;
+}
+
+.infos-descriptions-container{
+    display: flex;
+    grid-area: infos-description-container;
+}
+
+.infos-description{
+    max-width: 44ch;
+    font-size: 1.125rem;
+    padding: 5rem 4.25rem 4.4375rem 4.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.9375rem;
+}
+
+.infos-description > p strong{
+    color: #FF5B50;
+}
+
+.infos img{
+    max-width: 100%;
+    grid-area: infos-img;
+}
