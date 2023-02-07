@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     color: white;
+    transition: 0.5s;
 }
 
 strong{
@@ -23,10 +24,49 @@ header{
     padding: 0 5vw;
 }
 
+.menu-hamburguer{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width: 40px;
+    order: -1;
+    cursor: pointer;
+    position: relative;
+    display: none;
+}
+
+.line{
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+}
+
+.menu-hamburguer:hover .line:nth-child(1){
+    rotate: 45deg;
+    position: absolute;
+}
+
+.menu-hamburguer:hover .line:nth-child(2){
+    display: none;
+}
+
+.menu-hamburguer:hover .line:nth-child(3){
+    rotate: 135deg;
+    position: absolute;
+    transition: 0.5seg;
+}
+
 header > nav ul{
     display: flex;
     gap:3.75rem;
     list-style: none;
+}
+
+header > nav > ul a:hover{
+    text-decoration: underline;
+    transition: 0.5s;
+    color: rgb(92, 92, 92);
 }
 
 header > nav > ul a{
@@ -39,15 +79,24 @@ header button{
     gap: 0.9375rem;
     align-items: center;
     padding: 0.625rem 1.375rem 0.625rem 0.875rem;
-    background-color: #FFF;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #fff;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+header button:hover{
+    background-color: #fff;
+}
+
+header button:hover h1{
+    color: #000;
 }
 
 header > button h1{
     font-weight: bold;
     font-size: 1rem;
-    color: #000;
+    color: #fff;
 }
 
 .intro{
@@ -106,7 +155,12 @@ header > button h1{
 .gallery img{
     width: 100%;
     display: block;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
+}
+
+.gallery img:hover{
+    border: 1px solid grey;
+    cursor: pointer;
 }
 
 .infos{
@@ -180,17 +234,20 @@ header > button h1{
 
 .popular h1{
     font-size: 3.125rem;
+    font-weight: bold;
     margin-bottom: 9.875rem;
 }
 
 .popular h1 strong{
     font-size: 3.125rem;
+    font-weight: bold;
 }
 
 .popular-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 3.125rem;
+    column-gap: 4rem;
     align-items: center;
 }
 
@@ -198,6 +255,10 @@ header > button h1{
     display: flex;
     flex-direction: column;
     max-width: 21.875rem;
+}
+
+.astronaut-card:hover{
+    cursor: pointer;
 }
 
 .astronaut-card:nth-child(even){
@@ -226,6 +287,7 @@ header > button h1{
     align-items: center;
     margin-bottom: 1.625rem;
     margin-top: 2.75rem;
+    gap: 2rem;
 }
 
 .card-name > .name{
@@ -241,12 +303,11 @@ header > button h1{
 }
 
 .astronaut-img{
-    grid-column: 1 / 3;
     max-width: 100%;
 }
 
 .decorator{
-    height: 45rem;
+    height: 60%;
     width: 1px;
     background-color: #5A5757;
     position: absolute;
@@ -265,6 +326,11 @@ header > button h1{
     margin-bottom: 7.5rem;
 }
 
+.melhores-artistas > h1 strong{
+    font-size: 3.125rem;
+    font-weight: bold;
+}
+
 .melhores-artistas-container{
    display: flex;
    flex-wrap: wrap;
@@ -279,11 +345,13 @@ header > button h1{
     gap: 2.5rem;
     padding: 1.5625rem 2rem;
     background-color: #252525;
+    cursor: pointer;
 }
 
 .artista-card:hover{
     background-color: #FF5B50;
     color: white;
+    transition: 0s;
 }
 
 .artista-card:hover strong{
@@ -310,7 +378,7 @@ header > button h1{
 
 .artista-card-text-fotos{
     font-weight: 400;
-    max-width: 14ch;
+    width: 15ch;
 }
 
 .melhores-artistas-link{
@@ -340,16 +408,17 @@ footer{
 
 .footer-logo{
     grid-column: 1 / 3;
-    padding:  6.25rem 5.25rem;
+    padding:  6.25rem 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #5A5757;
 }
 
-.footer-logo img:nth-child(2){
+.footer-logo a{
     padding: 1.75rem;
     background-color: #FF5B50;
+    cursor: pointer;
 }
 
 .news{
@@ -357,7 +426,7 @@ footer{
     flex-direction: column;
     gap: 1.5625rem;
     align-items: center;
-    padding: 4.1875rem 0;
+    padding: 5vw 0;
     border-bottom: 1px solid #5A5757;
     border-right: 1px solid #5A5757;
 }
@@ -392,6 +461,7 @@ footer{
     padding: 14px 20px;
     background-color: #FFF;
     border: none;
+    height: 100%;
 }
 
 .news h1, strong{
@@ -443,11 +513,388 @@ nav > ul{
     text-decoration: none;
 }
 
+.social a > strong{
+    font-size: 1.5rem;
+}
+
 .social .icons{
     display: flex;
     align-items: center;
     gap: 3.125rem;
 }
+
+@media(max-width:1300px){
+    .melhores-artistas-container{
+        justify-content: center;
+        gap: 7vw 7vw;
+    }
+}
+
+@media(max-width:1150px){
+    footer{
+        grid-template-columns: 1fr;
+        padding: 0 5vw;
+    }
+
+    .footer-logo{
+        grid-column: 1 / 2;
+        padding: 3rem 0;
+    }
+
+    .news{
+        padding: 3rem 0px;
+        border-right: none;
+    }
+
+    .footer-links{
+        padding: 3rem 0px;
+        justify-content: space-evenly;
+        gap: 0px;
+    }
+
+    .social{
+        grid-column: 1 / 2;
+        padding: 3.75rem 0;
+    }
+
+}
+
+@media(max-width:1050px){
+    header > nav{
+        display: none;
+    }
+
+    .menu-hamburguer{
+        display: flex;
+    }
+
+    .intro{
+        justify-content: space-evenly;
+    }
+
+    .intro-title{
+        max-width: 45ch;
+    }
+
+    .intro img:nth-child(3){
+        display: none;
+    }
+
+    .infos{
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .infos-data-container{
+        flex-direction: row;
+        padding: 4rem 0px ;
+        border-right: none;
+    }
+
+    .infos-descriptions-container{
+        padding: 4rem 5vw;
+        gap: 3rem;
+    }
+
+    .infos-description{
+        gap: 2rem;
+        padding: 0px;
+    }
+}
+
+@media(max-width:900px){
+    .artista-card{
+        flex-direction: column;
+    }
+
+    .artista-card-text{
+        text-align: center;
+    }
+}
+
+@media(max-width:770px){    
+    .intro{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .intro-title{
+        order: -1;
+    }
+}
+
+@media(max-width:750px){
+    header{
+        align-items: flex-end;
+    }
+    
+    header button{
+        flex-direction: column;
+        padding: 0px;
+        border: none;
+    }
+
+    header button h1{
+        font-size: 0.8rem;
+    }
+
+    header button:hover{
+        background-color: transparent;
+    }
+
+    header button:hover h1{
+        color: grey;
+    }
+
+    .gallery{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .card-title h2{
+        font-size: 1rem;
+        margin: 0px;
+    }
+
+    .astronaut-card > .card-title img{
+        width: 1rem;
+    }
+
+    .card-name{
+        margin: 0;
+    }
+
+    .card-name > .name{
+        font-size: 0.8rem;
+    }
+
+    .card-name > .price{
+        font-size: 0.8rem;
+    }
+
+    .social{
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+}
+
+@media (max-width: 650px){
+    header > img{
+        width: 200px;
+    }
+
+    .gallery{
+        row-gap: 2rem;
+    }
+
+    .popular{
+        padding-top: 5rem;
+    }
+
+    .popular h1{
+        font-size: 2.9rem;
+        max-width: 10ch;
+        margin-bottom: 5rem;
+    }
+
+    .popular > h1 strong{
+        font-size: 2.9rem;
+    }
+
+    .astronaut-card > .card-title img{
+        width: 1rem;
+    }
+
+    .astronaut-card > .card-name{
+        margin: 1rem 0px;
+    }
+
+    .melhores-artistas{
+        padding-bottom: 5rem;
+    }
+
+    .footer-logo a{
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 560px){
+    header{
+        align-items: center;
+    }
+    header button{
+        display: none;
+    }
+
+    .menu-hamburguer{
+        order: 1;
+    }
+
+    .infos-data-container{
+        justify-content: space-between;
+        gap: 0px;
+        width: 100%;
+        padding: 3rem 5vw;
+    }
+
+    .infos-data-container > .infos-data h1{
+        font-size: 2rem;
+    }
+
+    .infos-descriptions-container{
+        flex-direction: column;
+        max-width: 40ch;
+    }
+
+    .popular{
+        padding: 5rem 5vw;
+    }
+
+    .melhores-artistas h1{
+        font-size: 3.125rem;
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+
+    .popular-container{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .astronaut-card:nth-child(even){
+        justify-self: center;
+    }
+
+    .card-title h2{
+        font-size: 1.5rem;
+    }
+
+    .astronaut-card > .card-title img{
+        width: 1.5rem;
+    }
+
+    .card-name > .name{
+        font-size: 1rem;
+    }
+
+    .card-name > .price{
+        font-size: 1rem;
+    }
+
+    .decorator{
+        display: none;
+    }
+
+    .artista-card{
+        flex-direction: row;
+    }
+
+    .artista-card-text{
+        text-align: right;
+    }
+
+    .footer-logo{
+        padding: 3rem 0;
+    }
+
+    .news{
+        padding: 3rem 0;
+    }
+
+    .footer-logo > img{
+        width: 200px;
+    }
+
+}
+
+@media (max-width: 500px){
+    .news-email input{
+        max-width: 180px;
+    }
+
+    .news-email button{
+        padding: 5px;
+    }
+}
+
+@media (max-width: 450px){
+    .footer-links{
+        padding: 5rem 0;
+    }
+
+    .footer-links nav h2{
+        font-size: 1rem;
+    }
+
+    .footer-links nav a{
+        font-size: 1rem;
+    }
+
+    .social > a strong{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 400px){
+    .intro-title h1{
+        font-size: 2.3rem;
+    }
+
+    .intro-title h1 strong{
+        font-size: 2.3rem;
+    }
+
+    .text-artists > img{
+        width: 150px;
+    }
+
+    .artista-card{
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .artista-card-picture{
+        width: 80px;
+    }
+
+    .artista-card-picture img{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 350px){
+    header > img{
+        width: 170px;
+    }
+
+    .infos-data-container > .infos-data h1{
+        font-size: 1.5rem;
+    }
+
+    .news-container h1{
+        font-size: 1.5rem;
+    }
+
+    .news-container h1 > strong{
+        font-size: 1.5rem;
+    }
+
+    .news-email input{
+        padding: 1rem;
+    }
+
+    .news-email button{
+        font-size: 1rem;
+    }
+
+    .icons{
+        gap: 1.5rem;
+    }
+}
+
 
 
 
