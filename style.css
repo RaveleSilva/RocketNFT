@@ -71,7 +71,6 @@ header > nav > ul a:hover{
 
 header > nav > ul a{
     text-decoration: none;
-    font-size: 1.125rem;
 }
 
 header button{
@@ -114,7 +113,6 @@ header > button h1{
 }
 
 .intro-text > .description{
-    font-size: 1.125rem;
     max-width: 32ch;
 }
 
@@ -208,7 +206,6 @@ header > button h1{
 
 .infos-description{
     max-width: 44ch;
-    font-size: 1.125rem;
     padding: 5rem 4.25rem 4.4375rem 4.25rem;
     display: flex;
     flex-direction: column;
@@ -521,6 +518,12 @@ nav > ul{
     display: flex;
     align-items: center;
     gap: 3.125rem;
+}
+
+.white-18-normal{
+    font-weight: normal;
+    color: white;
+    font-size: 18px;
 }
 
 @media(max-width:1300px){
